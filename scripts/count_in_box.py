@@ -3,6 +3,7 @@ import time
 
 movies_path = "../resources/movies/"
 
+
 def read_file(file_path):
     with open(file_path, 'r') as file:
         num_keys = int(file.readline().strip())
@@ -41,10 +42,3 @@ def check_for_bees_in_box(box, data):
         boxed_bees.append(bees_in_box)
 
     return boxed_bees
-
-
-if __name__ == "__main__":
-    video_name = "runs/detect/predict2/2024_04_03__15_30_22.mp4"
-    boxed_bees = check_for_bees_in_box([55, 480, 213, 314], read_file("coords_2024_04_03__15_30_22.txt"))
-
-    # save_video_with_counter(video_name, boxed_bees)

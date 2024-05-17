@@ -1,5 +1,7 @@
 import cv2
 
+
+# handling user input on image
 def mouse_callback(event, x, y, flags, param):
     points, image = param
     if event == cv2.EVENT_LBUTTONDOWN:
@@ -36,6 +38,7 @@ def draw_square(points, image):
         cv2.imshow("Wybierz punkty", image)
 
 
+# manual choosing of a bee entry/leaving point
 def choose_entry_box(video_path, frame_number):
     image = read_image(video_path, frame_number)
     # cv2.imwrite('saved_image.jpg', image)
@@ -63,7 +66,3 @@ def choose_entry_box(video_path, frame_number):
     cv2.waitKey(1) # okno sie nie zamyka wiec daje to i dziala lol
 
     return [points[0][0], points[0][1], points[1][0], points[1][1]]
-
-
-if __name__ == "__main__":
-    choose_entry_box("runs/detect/predict2/2024_04_03__15_30_22.mp4", 855)

@@ -3,11 +3,13 @@ from ultralytics import YOLO
 from choose_entry import choose_entry_box, draw_square
 from count_in_box import read_file, check_for_bees_in_box
 
+# get necessary paths
 text_files_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'text_files'))
 movies_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'movies'))
 models_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'models'))
-# movies_path = "../resources/movies/"
 
+
+# creates a file with coordinates of bees based on a model
 def save_boxes_to_file(results, movie_name):
     file_name = text_files_path + "/coords_" + movie_name + ".txt"
     file = open(file_name, "w")
@@ -24,6 +26,8 @@ def save_boxes_to_file(results, movie_name):
 
     file.close()
 
+
+# count bees leaving the box
 def count_leaving_bees(bees_in_box, max_delay=10):
     bees_leaving_counter = [0]
     delay = 0
@@ -39,6 +43,7 @@ def count_leaving_bees(bees_in_box, max_delay=10):
     return bees_leaving_counter
 
 
+# save a video of counted bees with the counter
 def save_video_with_counter(video_name, boxed_bees, path, entry_box):
     video_capture = cv2.VideoCapture(path+video_name)
     frame_width = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
@@ -64,10 +69,8 @@ def save_video_with_counter(video_name, boxed_bees, path, entry_box):
 
         draw_square([[entry_box[0], entry_box[1]], [entry_box[2], entry_box[3]]], frame)
         output_video.write(frame)
-        # draw_square([[offset_box[0], offset_box[1]], [offset_box[2], offset_box[3]]], frame)
         cv2.imshow('Frame', frame)
 
-        # Press 'q' to exit
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
@@ -81,19 +84,16 @@ def main():
     extension = "mp4"
 
     entry_box = choose_entry_box(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
-    # offset_box = choose_entry_box(f"{movie_name}.{extension}", frame_number=855)
 
+    # model training (uncomment for training a new model)
     # model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
-    
     # results = model(source=f"{movies_path}/{movie_name}.{extension}", save=False, conf=0.4)  # predict on an image
-
     # save_boxes_to_file(results, movie_name)
 
     boxed_bees = check_for_bees_in_box(entry_box, read_file(f"{text_files_path}/coords_{movie_name}.txt"))
-    # offset_bees = check_for_bees_in_box(offset_box, read_file(f"coords_{movie_name}.txt"))
-
     bees_leaving_counter = count_leaving_bees(boxed_bees, max_delay=15)
 
+    # saving a video with counter (1st one with counting bees in box and second for leaving bees)
     save_video_with_counter(f"{movie_name}.{extension}", boxed_bees, movies_path+'/', entry_box)
     # save_video_with_counter(f"{movie_name}.{extension}", bees_leaving_counter, predict_path, entry_box)
     # input = input()
