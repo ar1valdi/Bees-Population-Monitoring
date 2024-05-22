@@ -44,7 +44,7 @@ def count_leaving_bees(bees_in_box, max_delay=10):
 
 
 # save a video of counted bees with the counter
-def save_video_with_counter(video_name, boxed_bees, path, entry_box):
+def save_video_with_counter(video_name, boxed_bees, counted_bees, path, entry_box):
     video_capture = cv2.VideoCapture(path+video_name)
     frame_width = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
     frame_height = int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -52,7 +52,7 @@ def save_video_with_counter(video_name, boxed_bees, path, entry_box):
     output_video = cv2.VideoWriter(str(path + 'counted_' + video_name), cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
 
     font = cv2.FONT_HERSHEY_SIMPLEX
-    font_scale = 2
+    font_scale = 1.5
     color = (255, 255, 255)
     thickness = 2
 
@@ -64,7 +64,8 @@ def save_video_with_counter(video_name, boxed_bees, path, entry_box):
         if not ret:
             break
 
-        cv2.putText(frame, str(boxed_bees[i]), (20, frame_height - 20), font, font_scale, color, thickness)
+        cv2.putText(frame, "inbox: " + str(boxed_bees[i]), (20, frame_height - 20), font, font_scale, color, thickness)
+        cv2.putText(frame, "cnt: " + str(counted_bees[i]), (frame_width - 170, frame_height - 20), font, font_scale, color, thickness)
         i += 1
 
         draw_square([[entry_box[0], entry_box[1]], [entry_box[2], entry_box[3]]], frame)
@@ -80,7 +81,7 @@ def save_video_with_counter(video_name, boxed_bees, path, entry_box):
 
 
 def main():
-    movie_name = "2024_04_02__18_07_10"
+    movie_name = "149"
     extension = "mp4"
 
     entry_box = choose_entry_box(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
@@ -91,11 +92,10 @@ def main():
     # save_boxes_to_file(results, movie_name)
 
     boxed_bees = check_for_bees_in_box(entry_box, read_file(f"{text_files_path}/coords_{movie_name}.txt"))
-    bees_leaving_counter = count_leaving_bees(boxed_bees, max_delay=15)
+    bees_leaving_counter = count_leaving_bees(boxed_bees, max_delay=20)
 
     # saving a video with counter (1st one with counting bees in box and second for leaving bees)
-    save_video_with_counter(f"{movie_name}.{extension}", boxed_bees, movies_path+'/', entry_box)
-    # save_video_with_counter(f"{movie_name}.{extension}", bees_leaving_counter, predict_path, entry_box)
+    save_video_with_counter(f"{movie_name}.{extension}", boxed_bees, bees_leaving_counter, movies_path+'/', entry_box)
     # input = input()
 
 
