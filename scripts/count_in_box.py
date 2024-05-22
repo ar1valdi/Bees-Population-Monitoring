@@ -18,12 +18,12 @@ def read_file(file_path):
     return data
 
 
-def get_center(one_box) -> tuple[float, float]:
+def get_center(one_box) -> (float, float):
     return (one_box[0],one_box[1])
 
 
 def is_point_in_box(box, center_point, offset=0):
-    return box[0] + offset < center_point[0] < box[2] - offset and box[1]-offset  > center_point[1] > box[3] + offset
+    return (box[0] + offset < center_point[0] < box[2] - offset and box[1]-offset  > center_point[1] > box[3] + offset) or (box[0] + offset < center_point[0] < box[2] - offset and box[1]-offset  < center_point[1] < box[3] + offset)
 
 
 # checks for number of bees from data (all frames) inside given box 
