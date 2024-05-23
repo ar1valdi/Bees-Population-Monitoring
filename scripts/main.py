@@ -81,15 +81,15 @@ def save_video_with_counter(video_name, boxed_bees, counted_bees, path, entry_bo
 
 
 def main():
-    movie_name = "149"
+    movie_name = "dif_angle"
     extension = "mp4"
 
     entry_box = choose_entry_box(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
 
     # model training (uncomment for training a new model)
-    # model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
-    # results = model(source=f"{movies_path}/{movie_name}.{extension}", save=False, conf=0.4)  # predict on an image
-    # save_boxes_to_file(results, movie_name)
+    model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
+    results = model(source=f"{movies_path}/{movie_name}.{extension}", save=False, conf=0.4)  # predict on an image
+    save_boxes_to_file(results, movie_name)
 
     boxed_bees = check_for_bees_in_box(entry_box, read_file(f"{text_files_path}/coords_{movie_name}.txt"))
     bees_leaving_counter = count_leaving_bees(boxed_bees, max_delay=20)
