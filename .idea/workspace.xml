@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d77efc12-4625-4e02-b6d3-2f6547cba169" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/counted_149.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_149.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/counted_2024_04_02__18_07_10.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_2024_04_02__18_07_10.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/counted_dif_angle.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_dif_angle.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_149.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/text_files/coords_149.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_2024_04_02__18_07_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_04_02__18_07_10.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_dif_angle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/text_files/coords_dif_angle.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/choose_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/choose_entry.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/count_in_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/count_in_box.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +29,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -31,20 +48,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/123&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Main.executor": "Run",
+    "Python.choose_entry.executor": "Run",
+    "Python.count_in_box.executor": "Debug",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "tracking",
+    "last_opened_file_path": "C:/Users/123",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jkacz\Desktop\bees\resources\models" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="PythonConfigurationType" factoryName="Python">
+      <module name="pythonProject1" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9 (bees)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="scripts/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -69,10 +114,33 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="tracking" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scripts/main.py</url>
+          <line>115</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
