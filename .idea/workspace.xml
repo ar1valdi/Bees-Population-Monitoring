@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d77efc12-4625-4e02-b6d3-2f6547cba169" name="Changes" comment="">
+    <list default="true" id="d77efc12-4625-4e02-b6d3-2f6547cba169" name="Changes" comment="added tracking">
+      <change afterPath="$PROJECT_DIR$/raport tracking.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/movies/counted_149.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_149.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/movies/counted_2024_04_02__18_07_10.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_2024_04_02__18_07_10.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/movies/counted_dif_angle.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_dif_angle.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_149.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/text_files/coords_149.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_2024_04_02__18_07_10.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_04_02__18_07_10.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_dif_angle.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resources/text_files/coords_dif_angle.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/choose_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/choose_entry.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/count_in_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/count_in_box.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,31 +30,51 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ar1valdi&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d6791996-7d93-4aad-90c5-705d39b445d7" />
+        <option name="url" value="https://github.com/ar1valdi/bees.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2fGWjVkmFKi5XUvZfM6E47e2VGg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Main.executor": "Run",
-    "Python.choose_entry.executor": "Run",
-    "Python.count_in_box.executor": "Debug",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "tracking",
-    "last_opened_file_path": "C:/Users/123",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.choose_entry.executor&quot;: &quot;Run&quot;,
+    &quot;Python.count_in_box.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tracking&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/123&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jkacz\Desktop\bees\resources\models" />
@@ -107,6 +121,15 @@
       <option name="presentableId" value="Default" />
       <updated>1713428029319</updated>
     </task>
+    <task id="LOCAL-00001" summary="added tracking">
+      <option name="closed" value="true" />
+      <created>1717334130700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717334130700</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +143,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="tracking" />
+                        <option value="origin/tracking" />
                       </list>
                     </value>
                   </entry>
@@ -132,15 +155,9 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scripts/main.py</url>
-          <line>115</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added tracking" />
+    <option name="LAST_COMMIT_MESSAGE" value="added tracking" />
   </component>
 </project>

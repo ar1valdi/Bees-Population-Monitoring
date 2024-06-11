@@ -114,9 +114,9 @@ def save_video_with_counter(video_name, entering_bees, leaving_bees, path, entry
 
         for j in range(len(entering_bees)):
             cv2.putText(frame, "inbox___" + str(j) + ":" + str(entering_bees[j][0][i][0]),
-                        (frame_width - 180, 40 * (1 + 2*j)), font, font_scale, color, thickness)
+                        (350, 40 * (1 + 2*j)), font, font_scale, color, thickness)
             cv2.putText(frame, "cnt_in_" + str(j) + ": " + str(entering_bees[j][2][i]),
-                        (frame_width - 180, 40 * (2 + 2*j)), font, font_scale, color, thickness)
+                        (350, 40 * (2 + 2*j)), font, font_scale, color, thickness)
         for j in range(len(leaving_bees)):
             cv2.putText(frame, "inbox___" + str(j) + ":" + str(leaving_bees[j][0][i][0]),
                         (20, 40 * (1 + 2*j)), font, font_scale, color, thickness)
