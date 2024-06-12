@@ -168,13 +168,13 @@ def get_entering_and_leaving_bees(entry_boxes, movie_name, quit_boxes):
 
     for box in entry_boxes:
         boxed_bees, outer_boxed_bees = check_for_bees_in_box(box, read_file(f"{text_files_path}/coords_{movie_name}.txt"))
-        bees_leaving_counter = count_entering_bees(boxed_bees, outer_boxed_bees)
+        bees_leaving_counter = count_entering_bees(boxed_bees, outer_boxed_bees, 20)
         entering_bees.append([boxed_bees, outer_boxed_bees, bees_leaving_counter])
 
     for box in quit_boxes:
         boxed_bees, outer_boxed_bees = check_for_bees_in_box(box, read_file(
             f"{text_files_path}/coords_{movie_name}.txt"))
-        bees_leaving_counter = count_leaving_bees(boxed_bees, outer_boxed_bees)
+        bees_leaving_counter = count_leaving_bees(boxed_bees, outer_boxed_bees, 20)
         leaving_bees.append([boxed_bees, outer_boxed_bees, bees_leaving_counter])
 
     return entering_bees, leaving_bees
@@ -218,29 +218,27 @@ def run_algorithm(movie_name):
     entry_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
     quit_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
 
-    # model training (uncomment for training a new model)
-    model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
-    results = model.track(source=f"{movies_path}/{movie_name}.{extension}", save=True, conf=0.4)  # predict on an image
-    save_boxes_to_file(results, movie_name)
+    # model training (uncomment for running model through video, not nessesery if coords txt was already generated)
+    # model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
+    # results = model.track(source=f"{movies_path}/{movie_name}.{extension}",
+    #               save=True,
+    #               conf=0.4)  # predict on an image
+    # save_boxes_to_file(results, movie_name)
 
     entering_bees, leaving_bees = get_entering_and_leaving_bees(entry_boxes, movie_name, quit_boxes)
 
     # saving a video with counter (1st one with counting bees in box and second for leaving bees)
-    save_video_with_counter(f"{movie_name}.{extension}", entering_bees, leaving_bees, movies_path+'/',
-                            movies_save_path+'/', entry_boxes, quit_boxes)
+    save_video_with_counter(f"{movie_name}.{extension}",
+                            entering_bees,
+                            leaving_bees, movies_path+'/',
+                            movies_save_path+'/',
+                            entry_boxes,
+                            quit_boxes)
     input = input()
 
 
 def main():
-    names = get_filenames_without_extension(movies_path)
-    for name in names:
-        model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
-        results = model.track(source=f"{movies_path}/{name}.{extension}", save=True,
-                              conf=0.4)  # predict on an image
-        save_boxes_to_file(results, name)
-
-        # save_to_csv(name, "results.csv")
-    # run_algorithm(movie)
+    run_algorithm("2024_06_05__18_45_41")
 
 
 if __name__ == "__main__":
