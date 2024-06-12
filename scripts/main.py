@@ -5,9 +5,12 @@ from choose_entry import choose_entry_box, draw_square, choose_multiple_entry_bo
 from count_in_box import read_file, check_for_bees_in_box
 import time
 
+movie = "2024_04_03__15_30_22"
+extension = "mp4"
+
 # get necessary paths
 text_files_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'text_files'))
-movies_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'movies'))
+movies_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'movies', 'raw'))
 models_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'models'))
 
 
@@ -112,17 +115,22 @@ def save_video_with_counter(video_name, entering_bees, leaving_bees, path, entry
         if not ret:
             break
 
+        cnt = 0
         for j in range(len(entering_bees)):
             cv2.putText(frame, "inbox___" + str(j) + ":" + str(entering_bees[j][0][i][0]),
                         (350, 40 * (1 + 2*j)), font, font_scale, color, thickness)
             cv2.putText(frame, "cnt_in_" + str(j) + ": " + str(entering_bees[j][2][i]),
                         (350, 40 * (2 + 2*j)), font, font_scale, color, thickness)
+            cnt += entering_bees[j][2][i]
         for j in range(len(leaving_bees)):
             cv2.putText(frame, "inbox___" + str(j) + ":" + str(leaving_bees[j][0][i][0]),
                         (20, 40 * (1 + 2*j)), font, font_scale, color, thickness)
             cv2.putText(frame, "cnt_out_" + str(j) + ": " + str(leaving_bees[j][2][i]),
                         (20, 40 * (2 + 2*j)), font, font_scale, color, thickness)
+            cnt -= leaving_bees[j][2][i]
         i += 1
+
+        cv2.putText(frame, f"delta: {cnt}", (frame_width - 400, frame_height - 40), font, font_scale, color, thickness)
 
         for box in quit_boxes:
             mark_entrance_sq_on_movie(box, big_sq_offset, frame, (0, 0, 255))
@@ -153,21 +161,9 @@ def save_video_with_counter(video_name, entering_bees, leaving_bees, path, entry
     cv2.destroyAllWindows()
 
 
-def main():
-    # movie_name = "2024_04_02__18_07_10"
-    movie_name = "149"
-    extension = "mp4"
-
-    entry_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
-    quit_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
-
-    # model training (uncomment for training a new model)
-    # model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
-    # results = model.track(source=f"{movies_path}/{movie_name}.{extension}", save=True, conf=0.4)  # predict on an image
-    # save_boxes_to_file(results, movie_name)
-
-    leaving_bees = []
+def get_entering_and_leaving_bees(entry_boxes, movie_name, quit_boxes):
     entering_bees = []
+    leaving_bees = []
 
     for box in entry_boxes:
         boxed_bees, outer_boxed_bees = check_for_bees_in_box(box, read_file(f"{text_files_path}/coords_{movie_name}.txt"))
@@ -180,10 +176,54 @@ def main():
         bees_leaving_counter = count_leaving_bees(boxed_bees, outer_boxed_bees)
         leaving_bees.append([boxed_bees, outer_boxed_bees, bees_leaving_counter])
 
+    return entering_bees, leaving_bees
+
+
+def save_results_csv(entering_bees, leaving_bees, path, movie_name):
+    line = movie_name + str('.') + extension
+    for i in range(len(entering_bees)):
+        line = line + str(';') + str(entering_bees[i][2][-1])
+    for i in range(2 - len(entering_bees)):
+        line = line + str(';') + "-1"
+    for i in range(len(leaving_bees)):
+        line = line + str(';') + str(leaving_bees[i][2][-1])
+    for i in range(2 - len(leaving_bees)):
+        line = line + str(';') + "-1"
+    line = line + '\n'
+
+    with open(path, "a") as f:
+        f.write(line)
+
+
+# runs algorithm from premade .txt files and adds it to .csv file
+def save_to_csv(movie_path, path):
+    entry_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_path}.{extension}", frame_number=15)
+    quit_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_path}.{extension}", frame_number=15)
+
+    entering_bees, leaving_bees = get_entering_and_leaving_bees(entry_boxes, movie_path, quit_boxes)
+    save_results_csv(entering_bees, leaving_bees, path, movie_path)
+
+
+# performs full algorithm and shows movie preview
+def run_algorithm(movie_name):
+    entry_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
+    quit_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
+
+    # model training (uncomment for training a new model)
+    # model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
+    # results = model.track(source=f"{movies_path}/{movie_name}.{extension}", save=True, conf=0.4)  # predict on an image
+    # save_boxes_to_file(results, movie_name)
+
+    entering_bees, leaving_bees = get_entering_and_leaving_bees(entry_boxes, movie_name, quit_boxes)
+
     # saving a video with counter (1st one with counting bees in box and second for leaving bees)
     save_video_with_counter(f"{movie_name}.{extension}", entering_bees, leaving_bees, movies_path+'/', entry_boxes, quit_boxes)
-    # save_video_with_counter(f"{movie_name}.{extension}", boxed_bees, bees_leaving_counter, "pythonProject1\\runs\\detect\\track_test_1\\", entry_box)
-    # input = input()
+    input = input()
+
+
+def main():
+    # save_to_csv(movie, "results.csv")
+    run_algorithm(movie)
 
 
 if __name__ == "__main__":

@@ -4,10 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d77efc12-4625-4e02-b6d3-2f6547cba169" name="Changes" comment="added tracking">
-      <change afterPath="$PROJECT_DIR$/raport tracking.txt" afterDir="false" />
+    <list default="true" id="d77efc12-4625-4e02-b6d3-2f6547cba169" name="Changes" comment="added interface">
+      <change afterPath="$PROJECT_DIR$/count_test.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/processed/counted_2024_04_02__18_07_10.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/processed/counted_2024_04_03__15_30_22.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/processed/counted_dif_angle.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_04_02__18_07_10.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_04_03__15_28_32.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_04_03__15_29_27.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_04_03__15_30_22.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_06_05__18_41_30.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_06_05__18_45_41.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/2024_06_05__18_47_03.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/counted_2024_04_03__15_30_22.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/movies/raw/dif_angle.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_04_03__15_30_22.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_06_05__17_45_18.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_06_05__17_47_25.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_06_05__17_49_56.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_06_05__17_51_36.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_06_05__17_52_49.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/text_files/coords_2024_06_05__17_54_07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/results.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/movies/counted_149.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/resources/movies/counted_149.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/149.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/2024_04_02__18_07_10.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/counted_149.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/counted_2024_04_02__18_07_10.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/counted_dif_angle.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/movies/dif_angle.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/text_files/coords_149.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/choose_entry.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/choose_entry.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,20 +89,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.choose_entry.executor&quot;: &quot;Run&quot;,
-    &quot;Python.count_in_box.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tracking&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/123&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.Main.executor": "Run",
+    "Python.choose_entry.executor": "Run",
+    "Python.count_in_box.executor": "Debug",
+    "Python.main.executor": "Run",
+    "Python.manual_bees_counter.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "tracking",
+    "last_opened_file_path": "C:/Users/123",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jkacz\Desktop\bees\resources\models" />
@@ -129,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717334130700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added interface">
+      <option name="closed" value="true" />
+      <created>1718102584340</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718102584340</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,6 +195,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added tracking" />
-    <option name="LAST_COMMIT_MESSAGE" value="added tracking" />
+    <MESSAGE value="added interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="added interface" />
   </component>
 </project>

@@ -71,6 +71,7 @@ def choose_entry_box(video_path, frame_number):
 
     # while cv2.waitKey(1) & 0xFF != ord('q'):
     #     pass
+
     cv2.destroyAllWindows()
     
     cv2.waitKey(1) # okno sie nie zamyka wiec daje to i dziala lol
