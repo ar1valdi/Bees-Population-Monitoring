@@ -11,6 +11,7 @@ extension = "mp4"
 # get necessary paths
 text_files_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'text_files'))
 movies_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'movies', 'raw'))
+movies_save_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'movies', 'processed'))
 models_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'resources', 'models'))
 
 
@@ -93,12 +94,12 @@ def mark_entrance_sq_on_movie(entry_box, big_sq_offset, frame, color):
 
 
 # save a video of counted bees with the counter
-def save_video_with_counter(video_name, entering_bees, leaving_bees, path, entry_boxes, quit_boxes):
+def save_video_with_counter(video_name, entering_bees, leaving_bees, path, path_out, entry_boxes, quit_boxes):
     video_capture = cv2.VideoCapture(path+video_name)
     frame_width = int(video_capture.get(cv2.CAP_PROP_FRAME_WIDTH))
     frame_height = int(video_capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    output_video = cv2.VideoWriter(str(path + 'counted_' + video_name), cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
+    output_video = cv2.VideoWriter(str(path_out + 'counted_' + video_name), cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
 
     font = cv2.FONT_HERSHEY_SIMPLEX
     font_scale = 1.5
@@ -204,26 +205,42 @@ def save_to_csv(movie_path, path):
     save_results_csv(entering_bees, leaving_bees, path, movie_path)
 
 
+def get_filenames_without_extension(folder_path):
+    filenames_without_extension = []
+    for filename in os.listdir(folder_path):
+        if os.path.isfile(os.path.join(folder_path, filename)):
+            filenames_without_extension.append(os.path.splitext(filename)[0])
+    return filenames_without_extension
+
+
 # performs full algorithm and shows movie preview
 def run_algorithm(movie_name):
     entry_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
     quit_boxes = choose_multiple_entry_boxes(f"{movies_path}/{movie_name}.{extension}", frame_number=15)
 
     # model training (uncomment for training a new model)
-    # model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
-    # results = model.track(source=f"{movies_path}/{movie_name}.{extension}", save=True, conf=0.4)  # predict on an image
-    # save_boxes_to_file(results, movie_name)
+    model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
+    results = model.track(source=f"{movies_path}/{movie_name}.{extension}", save=True, conf=0.4)  # predict on an image
+    save_boxes_to_file(results, movie_name)
 
     entering_bees, leaving_bees = get_entering_and_leaving_bees(entry_boxes, movie_name, quit_boxes)
 
     # saving a video with counter (1st one with counting bees in box and second for leaving bees)
-    save_video_with_counter(f"{movie_name}.{extension}", entering_bees, leaving_bees, movies_path+'/', entry_boxes, quit_boxes)
+    save_video_with_counter(f"{movie_name}.{extension}", entering_bees, leaving_bees, movies_path+'/',
+                            movies_save_path+'/', entry_boxes, quit_boxes)
     input = input()
 
 
 def main():
-    # save_to_csv(movie, "results.csv")
-    run_algorithm(movie)
+    names = get_filenames_without_extension(movies_path)
+    for name in names:
+        model = YOLO(f"{models_path}/model3.pt")  # load a pretrained model (recommended for training)
+        results = model.track(source=f"{movies_path}/{name}.{extension}", save=True,
+                              conf=0.4)  # predict on an image
+        save_boxes_to_file(results, name)
+
+        # save_to_csv(name, "results.csv")
+    # run_algorithm(movie)
 
 
 if __name__ == "__main__":
