@@ -32,10 +32,20 @@ def read_image(video_name, frame_number):
     return frame
 
 
-def draw_square(points, image):
+def draw_square(points, image, color):
     if len(points) == 2:
-        cv2.rectangle(image, points[0], points[1], (0, 0, 255), 2)
+        cv2.rectangle(image, points[0], points[1], color, 2)
         cv2.imshow("Wybierz punkty", image)
+
+
+def choose_multiple_entry_boxes(video_path, frame_number):
+    entries = []
+    while cv2.waitKey(20) != ord("q"):
+        pt = choose_entry_box(video_path, frame_number)
+        if not pt:
+            break
+        entries.append(pt)
+    return entries
 
 
 # manual choosing of a bee entry/leaving point
@@ -56,13 +66,16 @@ def choose_entry_box(video_path, frame_number):
             break
 
         if len(points) == 2:
-            draw_square(points, image)
+            draw_square(points, image, (0, 0, 255))
             break
 
     # while cv2.waitKey(1) & 0xFF != ord('q'):
     #     pass
+
     cv2.destroyAllWindows()
     
     cv2.waitKey(1) # okno sie nie zamyka wiec daje to i dziala lol
 
+    if not points:
+        return []
     return [points[0][0], points[0][1], points[1][0], points[1][1]]

@@ -1,0 +1,16 @@
+Raport tracking
+
+Mechanizm polega na stworzeniu dodatkowego prostokąta o bokach orginal + offset (testowany offset=50) dookoła oznaczonego wyjścia i sprawdzaniu czy pszczoła znajdująca się w obszarze wyjścia nie była w poprzedniej klatce na obszarze dookoła, a więc czy nie "weszła w kadr" zamiast pojawić się w wyjściu. Mechanizm ten działa poprawnie.
+
+W teorii tracking powinien rozwiązać również problem kilkukrotnego zliczania jednej pszczoły podczas wychodzenia, jednak pszczoła drastycznie przyszpieszając przestaje być odpowiodnio oznaczana przez model co skutkuje zmiennym ID dla tej samej pszczoły, a więc podwójnym zliczeniem.
+
+Metodą doświadczalną najlepsze wyniki otrzymane zostały łącząc wyżej opisany mechanizm z blokowaniem następnego zliczenia przez x klatek po ostatnim zliczeniu (metodą prób i błędów ~10 klatek jest odpowiedznią wartością).
+
+Dodane zostały również te same mechanizmy zaadoptowane do wykrywania wejść, jednak YOLO ma problemy z labelowaniem dużej ilości pszczół w jednym miejscu, przez co nie działa to dobrze.
+
+Dodatkowo dodane przyspieszanie i zwalnianie filmu klawiszami ASDF oraz wybór kilku klatek jednocześnie. Najpierw wybierane są wejścia, q aby zatwierdzić, wyjścia, q aby zatwierdzić.
+
+TESTOWANY FILM		   BŁĄD			WYNIKI		
+2024_04_02__18_07_10.mp4   100.0% 		RES: 3  EXP: 3
+149.mp4 		   95.23% 		RES: 20 EXP: 21
+diff_angle.mp4 		   96.29%		RES: 28 EXP: 27
