@@ -154,9 +154,11 @@ def save_video_with_counter(video_name, entering_bees, leaving_bees, path, path_
         elif key == ord('f') and play_slowdown > 30:
             play_slowdown -= 30
 
-    key = 0
-    while key != 255:
-        key = cv2.waitKey(99999) & 0xFF
+    while True:
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('q'):
+            break
+
     video_capture.release()
     output_video.release()
     cv2.destroyAllWindows()
@@ -234,11 +236,11 @@ def run_algorithm(movie_name):
                             movies_save_path+'/',
                             entry_boxes,
                             quit_boxes)
-    input = input()
+    # input = input()
 
 
 def main():
-    run_algorithm("2024_06_05__18_45_41")
+    run_algorithm(movie)
 
 
 if __name__ == "__main__":
