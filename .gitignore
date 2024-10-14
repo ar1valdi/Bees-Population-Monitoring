@@ -1,0 +1,11 @@
+scripts/__pycache__
+
+resources/.idea
+resources/datasets
+resources/movies
+resources/text_files
+resources/.DS_Store
+
+.venv
+
+.idea

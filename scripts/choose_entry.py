@@ -51,13 +51,11 @@ def choose_multiple_entry_boxes(video_path, frame_number):
 # manual choosing of a bee entry/leaving point
 def choose_entry_box(video_path, frame_number):
     image = read_image(video_path, frame_number)
-    # cv2.imwrite('saved_image.jpg', image)
     points = []
 
     print(f"image shape: {image.shape[0]} {image.shape[1]}")
     cv2.namedWindow("Wybierz punkty")
     cv2.setMouseCallback("Wybierz punkty", mouse_callback, (points, image))
-
 
     while True:
         cv2.imshow("Wybierz punkty", image)
@@ -73,8 +71,7 @@ def choose_entry_box(video_path, frame_number):
     #     pass
 
     cv2.destroyAllWindows()
-    
-    cv2.waitKey(1) # okno sie nie zamyka wiec daje to i dziala lol
+    cv2.waitKey(1)
 
     if not points:
         return []
